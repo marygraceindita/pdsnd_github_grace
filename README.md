@@ -3,7 +3,7 @@
 ### Date created
 Include the date you created this project and README file.
 
-### Project Title
+### GitHub Project
 Replace the Project Title
 
 ### Description
