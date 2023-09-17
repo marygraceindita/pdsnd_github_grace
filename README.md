@@ -6,7 +6,7 @@ Include the date you created this project and README file.
 ### GitHub Project
 Replace the Project Title
 
-### Description
+### Learning the GitHub Repository
 Describe what your project is about and what it does
 
 ### Files used
