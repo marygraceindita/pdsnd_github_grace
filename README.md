@@ -3,15 +3,20 @@
 ### Sept 17 2023
 Include the date you created this project and README file.
 
-### GitHub Project
+### Grace's Github Project
 Replace the Project Title
 
 ### Learning the GitHub Repository
-Describe what your project is about and what it does
+This repository is a practical exploration of GitHub, focusing on mastering the fundamentals of version control. Through various commits, branches, and merges, this project offers insights into the intricacies of git operations and best practices.
 
-### Files used
+### Project.py
 Include the files used
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Articles and Blog Posts
+Mastering Markdown by GitHub Guides: An in-depth look at the simplicity and power of Markdown, which helped shape the documentation of this project.
 
+Best Practices for RESTful APIs by RESTful API: Insights and best practices for creating RESTful APIs which influenced the design of my backend services.
+
+Open Source Libraries
+Thanks to the Pandas community for developing a powerful Python library that made data processing and analysis in this project a breeze.
