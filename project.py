@@ -3,14 +3,19 @@ import datetime
 import getpass
 import os
 
+def get_city_filename(city):
+    city_files = {
+        "chicago": "chicago.csv",
+        "washington": "washington.csv",
+        "new york": "new_york_city.csv"
+    }
+    return city_files.get(city)
+
 def load_data(city, month='all', day='all'):
     """Load data based on the city provided."""
-    if city == "chicago":
-        df = pd.read_csv("chicago.csv")
-    elif city == "washington":
-        df = pd.read_csv("washington.csv")
-    elif city == "new york":
-        df = pd.read_csv("new_york_city.csv")
+    filename = get_city_filename(city)
+    if filename:
+        df = pd.read_csv(filename)
     else:
         print("Invalid city choice.")
         return None
@@ -38,22 +43,16 @@ def load_data(city, month='all', day='all'):
 
     return df
 
+def get_mode_of_column(df, column_name):
+    return df[column_name].mode()[0]
+
 def most_frequent_times_of_travel(df):
-    """Return the most frequent times of travel."""
-    start_time = datetime.datetime.now()
+    
+    most_common_month = get_mode_of_column(df, 'started_at')
+    most_common_day = get_mode_of_column(df, 'day')
+    most_common_hour = get_mode_of_column(df, 'hour')
+    
 
-    # Assuming 'started_at' is more general than 'Start Time' for this function
-    if 'started_at' in df.columns:
-        most_common_month = df['started_at'].dt.month_name().mode()[0]
-        most_common_day = df['started_at'].dt.day_name().mode()[0]
-        most_common_hour = df['started_at'].dt.hour.mode()[0]
-
-        print(f"\nMost Common Month: {most_common_month}")
-        print(f"Most Common Day: {most_common_day}")
-        print(f"Most Common Start Hour: {most_common_hour}")
-
-    end_time = datetime.datetime.now()
-    print(f"\nTime taken for most frequent times of travel calculation: {end_time - start_time}")
 
 def most_popular_stations_and_trip(df):
     """Return the most popular stations and trip."""
@@ -141,4 +140,4 @@ if __name__ == '__main__':
     main()
 
 
-#test commit1
+#test commit3
