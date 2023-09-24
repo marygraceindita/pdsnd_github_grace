@@ -47,10 +47,24 @@ def get_mode_of_column(df, column_name):
     return df[column_name].mode()[0]
 
 def most_frequent_times_of_travel(df):
+    """Returns the most common month, day, and hour of travel."""
     
-    most_common_month = get_mode_of_column(df, 'started_at')
-    most_common_day = get_mode_of_column(df, 'day')
-    most_common_hour = get_mode_of_column(df, 'hour')
+    # Most common month
+    most_common_month_num = df['month'].mode()[0]
+    most_common_month = datetime.datetime(1900, most_common_month_num, 1).strftime('%B')
+    
+    # Most common day
+    most_common_day = df['day'].mode()[0]
+    
+    # Extract hour if it isn't already present in the dataframe
+    if 'hour' not in df.columns:
+        df['hour'] = df['started_at'].dt.hour if 'started_at' in df.columns else df['Start Time'].dt.hour
+    most_common_hour = df['hour'].mode()[0]
+
+    print(f"\nMost Common Month: {most_common_month}")
+    print(f"Most Common Day: {most_common_day}")
+    print(f"Most Common Hour: {most_common_hour}")
+
     
 
 
@@ -139,5 +153,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-#test commit3
